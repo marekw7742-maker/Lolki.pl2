@@ -189,44 +189,6 @@
             100% { transform: translateY(0px); }
         }
         
-        .road-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 350px;
-        }
-        
-        .road-tile {
-            width: 110px;
-            height: 110px;
-            background: var(--road);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border: 3px solid var(--grass);
-        }
-        
-        .road-tile:hover {
-            transform: scale(1.05);
-        }
-        
-        .road-tile::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 25px;
-            height: 25px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
         /* Features section */
         .features {
             padding: 100px 0;
@@ -706,7 +668,7 @@
                 <button class="cta-btn">Zobacz zestawy</button>
             </div>
             <div class="hero-image fade-in">
-                <img src="https://i.imgur.com/vhE8XZM.jpeg" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <img data-sheet-id="hero" src="https://i.imgur.com/vhE8XZM.jpeg" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
@@ -761,7 +723,7 @@
             <div class="applications-grid">
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Dla dzieci">
+                        <img data-sheet-id="aplikacja1" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Dla dzieci">
                     </div>
                     <div class="application-content">
                         <h3>Dla dzieci</h3>
@@ -770,7 +732,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="OSK">
+                        <img data-sheet-id="aplikacja2" src="https://i.imgur.com/c8OHTyo.jpeg" alt="OSK">
                     </div>
                     <div class="application-content">
                         <h3>Dla OSK</h3>
@@ -779,7 +741,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Przedszkola">
+                        <img data-sheet-id="aplikacja3" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Przedszkola">
                     </div>
                     <div class="application-content">
                         <h3>Dla przedszkoli</h3>
@@ -788,7 +750,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="Szkoły">
+                        <img data-sheet-id="aplikacja4" src="https://i.imgur.com/c8OHTyo.jpeg" alt="Szkoły">
                     </div>
                     <div class="application-content">
                         <h3>Dla szkół</h3>
@@ -809,7 +771,7 @@
             <div class="products-grid">
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img src="https://i.imgur.com/vhE8XZM.jpeg" alt="Zestaw startowy Plansza Drogowa">
+                        <img data-sheet-id="produkt1" src="https://i.imgur.com/vhE8XZM.jpeg" alt="Zestaw startowy Plansza Drogowa">
                         <div class="product-badge">BESTSELLER</div>
                     </div>
                     <div class="product-info">
@@ -824,7 +786,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img src="https://i.imgur.com/VkcUuCx.jpeg" alt="Zestaw edukacyjny">
+                        <img data-sheet-id="produkt2" src="https://i.imgur.com/VkcUuCx.jpeg" alt="Zestaw edukacyjny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Edukacyjny</h3>
@@ -838,7 +800,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Zestaw rodzinny">
+                        <img data-sheet-id="produkt3" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Zestaw rodzinny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Rodzinny</h3>
@@ -852,7 +814,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="Zestaw przedszkolny">
+                        <img data-sheet-id="produkt4" src="https://i.imgur.com/c8OHTyo.jpeg" alt="Zestaw przedszkolny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Przedszkolny</h3>
@@ -872,7 +834,7 @@
     <section class="construction" id="construction">
         <div class="container construction-container">
             <div class="construction-image fade-in">
-                <img src="https://i.imgur.com/0eDGE2k.jpeg" alt="Konstrukcja planszy drogowej">
+                <img data-sheet-id="konstrukcja" src="https://i.imgur.com/0eDGE2k.jpeg" alt="Konstrukcja planszy drogowej">
             </div>
             <div class="construction-content fade-in">
                 <h2>Solidna konstrukcja</h2>
@@ -886,7 +848,7 @@
                         </div>
                         <div class="material-text">
                             <h3>Płyta multiplex 9mm</h3>
-                            <p>Solidna podstawa każ***** modułu</p>
+                            <p>Solidna podstawa każdego modułu</p>
                         </div>
                     </div>
                     <div class="material-item">
@@ -978,57 +940,157 @@
         </div>
     </footer>
 
+    <!-- Skrypt integracji z Google Sheets -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // Konfiguracja
+    const CONFIG = {
+      SHEET_ID: '1cNRrDaz5rxEt4jLl_q-UV1Hnfyp2lwSsd0To9h0a23A',
+      SHEET_NAME: 'Arkusz1',
+      UPDATE_INTERVAL: 300000, // 5 minut
+      FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
+      THROTTLE_TIME: 1000
+    };
+
+    // Cache dla ochrony przed częstymi requestami
+    let lastUpdateTime = 0;
+    const imageCache = new Map();
+
+    async function fetchSheetData() {
+      try {
+        const now = Date.now();
+        if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
+          console.warn('Throttle: Zbyt częste zapytania');
+          return null;
+        }
+        
+        lastUpdateTime = now;
+        const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME}`;
+        const response = await fetch(url);
+        
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.text();
+      } catch (error) {
+        console.error('Błąd pobierania danych:', error);
+        return null;
+      }
+    }
+
+    function processCSVData(csvData) {
+      const rows = csvData.split('\n').slice(1);
+      const imageData = {};
+      
+      rows.forEach(row => {
+        try {
+          const columns = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+          if (columns.length >= 3) {
+            const id = columns[0].replace(/"/g, '').trim();
+            const url = columns[2].replace(/"/g, '').trim();
+            
+            if (isValidUrl(url)) {
+              imageData[id] = url;
+            } else {
+              console.warn(`Nieprawidłowy URL dla ${id}: ${url}`);
+              imageData[id] = CONFIG.FALLBACK_IMAGE;
+            }
+          }
+        } catch (e) {
+          console.error('Błąd przetwarzania wiersza:', row, e);
+        }
+      });
+      
+      return imageData;
+    }
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function updatePageImages(imageData) {
+      Object.entries(imageData).forEach(([id, url]) => {
+        const elements = document.querySelectorAll(`[data-sheet-id="${id}"]`);
+        
+        elements.forEach(element => {
+          if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
+          
+          if (element.tagName === 'IMG') {
+            element.src = url;
+          } else if (element.style) {
+            element.style.backgroundImage = `url(${url})`;
+          }
+          
+          console.log(`Zaktualizowano: ${id} => ${url}`);
+          imageCache.set(id, url);
+        });
+      });
+    }
+
+    async function updateImages() {
+      console.log('Rozpoczęto aktualizację zdjęć...');
+      const csvData = await fetchSheetData();
+      if (!csvData) return;
+      
+      const imageData = processCSVData(csvData);
+      updatePageImages(imageData);
+    }
+
+    // Inicjalizacja
+    document.addEventListener('DOMContentLoaded', () => {
+      updateImages();
+      setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
+    });
+
+    // Ręczna aktualizacja
+    window.manualUpdate = updateImages;
+
+    // Pozostałe skrypty (koszyk, animacje itp.)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-        
-        // Simple cart functionality
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const cartCount = document.querySelector('.cart-count');
-        let count = 0;
-        
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                count++;
-                cartCount.textContent = count;
-                
-                // Animation effect
-                button.textContent = 'Dodano!';
-                button.style.backgroundColor = '#2ecc71';
-                
-                setTimeout(() => {
-                    button.textContent = 'Do koszyka';
-                    button.style.backgroundColor = '';
-                }, 2000);
-            });
+    });
+    
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartCount = document.querySelector('.cart-count');
+    let count = 0;
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            count++;
+            cartCount.textContent = count;
+            button.textContent = 'Dodano!';
+            button.style.backgroundColor = '#2ecc71';
+            
+            setTimeout(() => {
+                button.textContent = 'Do koszyka';
+                button.style.backgroundColor = '';
+            }, 2000);
         });
-        
-        // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-            observer.observe(el);
+    });
+    
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
         });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        observer.observe(el);
+    });
     </script>
 </body>
 </html>
