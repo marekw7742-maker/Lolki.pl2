@@ -942,155 +942,107 @@
 
     <!-- Skrypt integracji z Google Sheets -->
     <script>
-    // Konfiguracja
-    const CONFIG = {
-      SHEET_ID: '1cNRrDaz5rxEt4jLl_q-UV1Hnfyp2lwSsd0To9h0a23A',
-      SHEET_NAME: 'Arkusz1',
-      UPDATE_INTERVAL: 300000, // 5 minut
-      FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
-      THROTTLE_TIME: 1000
-    };
+// Konfiguracja - UŻYJ SWOJEGO ID!
+const CONFIG = {
+  SHEET_ID: '1EUPyabqx7KuqVVx0qluRioxphHyo9eTR',
+  SHEET_NAME: 'Arkusz1',
+  UPDATE_INTERVAL: 300000,
+  FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
+  THROTTLE_TIME: 1000
+};
 
-    // Cache dla ochrony przed częstymi requestami
-    let lastUpdateTime = 0;
-    const imageCache = new Map();
+// Cache dla ochrony przed częstymi requestami
+let lastUpdateTime = 0;
+const imageCache = new Map();
 
-    async function fetchSheetData() {
-      try {
-        const now = Date.now();
-        if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
-          console.warn('Throttle: Zbyt częste zapytania');
-          return null;
+async function fetchSheetData() {
+  try {
+    const now = Date.now();
+    if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
+      console.warn('Throttle: Zbyt częste zapytania');
+      return null;
+    }
+    
+    lastUpdateTime = now;
+    const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME};
+    const response = await fetch(url);
+    
+    if (!response.ok) throw new Error(HTTP error! status: ${response.status});
+    return await response.text();
+  } catch (error) {
+    console.error('Błąd pobierania danych z Google Sheets:', error);
+    return null;
+  }
+}
+
+function processCSVData(csvData) {
+  const rows = csvData.split('\n').slice(1);
+  const imageData = {};
+  
+  rows.forEach(row => {
+    try {
+      const columns = row.split(',');
+      if (columns.length >= 3) {
+        const id = columns[0].replace(/"/g, '').trim();
+        const url = columns[2].replace(/"/g, '').trim();
+        
+        if (isValidUrl(url)) {
+          imageData[id] = url;
+        } else {
+          console.warn(Nieprawidłowy URL dla ${id}: ${url});
+          imageData[id] = CONFIG.FALLBACK_IMAGE;
         }
-        
-        lastUpdateTime = now;
-        const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME}`;
-        const response = await fetch(url);
-        
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return await response.text();
-      } catch (error) {
-        console.error('Błąd pobierania danych:', error);
-        return null;
       }
+    } catch (e) {
+      console.error('Błąd przetwarzania wiersza:', row, e);
     }
+  });
+  
+  return imageData;
+}
 
-    function processCSVData(csvData) {
-      const rows = csvData.split('\n').slice(1);
-      const imageData = {};
-      
-      rows.forEach(row => {
-        try {
-          const columns = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-          if (columns.length >= 3) {
-            const id = columns[0].replace(/"/g, '').trim();
-            const url = columns[2].replace(/"/g, '').trim();
-            
-            if (isValidUrl(url)) {
-              imageData[id] = url;
-            } else {
-              console.warn(`Nieprawidłowy URL dla ${id}: ${url}`);
-              imageData[id] = CONFIG.FALLBACK_IMAGE;
-            }
-          }
-        } catch (e) {
-          console.error('Błąd przetwarzania wiersza:', row, e);
-        }
-      });
-      
-      return imageData;
-    }
+function isValidUrl(string) {
+  try {
+    new URL(string);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
 
-    function isValidUrl(string) {
-      try {
-        new URL(string);
-        return true;
-      } catch (_) {
-        return false;
+function updatePageImages(imageData) {
+  Object.entries(imageData).forEach(([id, url]) => {
+    const elements = document.querySelectorAll([data-sheet-id="${id}"]);
+    
+    elements.forEach(element => {
+      if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
+      
+      if (element.tagName === 'IMG') {
+        element.src = url;
+        console.log(Zaktualizowano: ${id} => ${url});
       }
-    }
-
-    function updatePageImages(imageData) {
-      Object.entries(imageData).forEach(([id, url]) => {
-        const elements = document.querySelectorAll(`[data-sheet-id="${id}"]`);
-        
-        elements.forEach(element => {
-          if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
-          
-          if (element.tagName === 'IMG') {
-            element.src = url;
-          } else if (element.style) {
-            element.style.backgroundImage = `url(${url})`;
-          }
-          
-          console.log(`Zaktualizowano: ${id} => ${url}`);
-          imageCache.set(id, url);
-        });
-      });
-    }
-
-    async function updateImages() {
-      console.log('Rozpoczęto aktualizację zdjęć...');
-      const csvData = await fetchSheetData();
-      if (!csvData) return;
-      
-      const imageData = processCSVData(csvData);
-      updatePageImages(imageData);
-    }
-
-    // Inicjalizacja
-    document.addEventListener('DOMContentLoaded', () => {
-      updateImages();
-      setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
+      imageCache.set(id, url);
     });
+  });
+}
 
-    // Ręczna aktualizacja
-    window.manualUpdate = updateImages;
+async function updateImages() {
+  console.log('Rozpoczęto aktualizację zdjęć...');
+  const csvData = await fetchSheetData();
+  if (!csvData) return;
+  
+  const imageData = processCSVData(csvData);
+  updatePageImages(imageData);
+}
 
-    // Pozostałe skrypty (koszyk, animacje itp.)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const cartCount = document.querySelector('.cart-count');
-    let count = 0;
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            count++;
-            cartCount.textContent = count;
-            button.textContent = 'Dodano!';
-            button.style.backgroundColor = '#2ecc71';
-            
-            setTimeout(() => {
-                button.textContent = 'Do koszyka';
-                button.style.backgroundColor = '';
-            }, 2000);
-        });
-    });
-    
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    fadeElements.forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        observer.observe(el);
-    });
-    </script>
+// Inicjalizacja
+document.addEventListener('DOMContentLoaded', () => {
+  updateImages();
+  setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
+});
+
+// Ręczna aktualizacja
+window.manualUpdate = updateImages;
+</script>
 </body>
 </html>
