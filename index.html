@@ -39,7 +39,6 @@
             padding: 0 20px;
         }
         
-        /* Header styles */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -140,7 +139,6 @@
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
         
-        /* Hero section */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, #1a2b3c 100%);
             color: white;
@@ -189,7 +187,6 @@
             100% { transform: translateY(0px); }
         }
         
-        /* Features section */
         .features {
             padding: 100px 0;
             background: white;
@@ -251,7 +248,6 @@
             color: var(--gray);
         }
         
-        /* Applications section */
         .applications {
             padding: 100px 0;
             background: var(--light);
@@ -299,7 +295,6 @@
             color: var(--primary);
         }
         
-        /* Products section */
         .products {
             padding: 100px 0;
             background: white;
@@ -414,7 +409,6 @@
             background: #dfe6e9;
         }
         
-        /* Construction section */
         .construction {
             padding: 100px 0;
             background: var(--light);
@@ -488,7 +482,6 @@
             color: var(--dark);
         }
         
-        /* Footer */
         footer {
             background: var(--primary);
             color: white;
@@ -582,7 +575,6 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive styles */
         @media (max-width: 992px) {
             .hero-content {
                 flex-direction: column;
@@ -622,7 +614,6 @@
             }
         }
         
-        /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -631,10 +622,24 @@
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -659,7 +664,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text fade-in">
@@ -668,12 +672,11 @@
                 <button class="cta-btn">Zobacz zestawy</button>
             </div>
             <div class="hero-image fade-in">
-                <img data-sheet-id="hero" src="https://i.imgur.com/vhE8XZM.jpeg" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <img data-sheet-id="hero" src="" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <div class="section-header fade-in">
@@ -713,7 +716,6 @@
         </div>
     </section>
 
-    <!-- Applications Section -->
     <section class="applications" id="applications">
         <div class="container">
             <div class="section-header fade-in">
@@ -723,7 +725,7 @@
             <div class="applications-grid">
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja1" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Dla dzieci">
+                        <img data-sheet-id="aplikacja1" src="" alt="Dla dzieci">
                     </div>
                     <div class="application-content">
                         <h3>Dla dzieci</h3>
@@ -732,7 +734,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja2" src="https://i.imgur.com/c8OHTyo.jpeg" alt="OSK">
+                        <img data-sheet-id="aplikacja2" src="" alt="OSK">
                     </div>
                     <div class="application-content">
                         <h3>Dla OSK</h3>
@@ -741,7 +743,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja3" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Przedszkola">
+                        <img data-sheet-id="aplikacja3" src="" alt="Przedszkola">
                     </div>
                     <div class="application-content">
                         <h3>Dla przedszkoli</h3>
@@ -750,7 +752,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja4" src="https://i.imgur.com/c8OHTyo.jpeg" alt="Szkoły">
+                        <img data-sheet-id="aplikacja4" src="" alt="Szkoły">
                     </div>
                     <div class="application-content">
                         <h3>Dla szkół</h3>
@@ -761,7 +763,6 @@
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <div class="section-header fade-in">
@@ -771,7 +772,7 @@
             <div class="products-grid">
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt1" src="https://i.imgur.com/vhE8XZM.jpeg" alt="Zestaw startowy Plansza Drogowa">
+                        <img data-sheet-id="produkt1" src="" alt="Zestaw startowy Plansza Drogowa">
                         <div class="product-badge">BESTSELLER</div>
                     </div>
                     <div class="product-info">
@@ -786,7 +787,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt2" src="https://i.imgur.com/VkcUuCx.jpeg" alt="Zestaw edukacyjny">
+                        <img data-sheet-id="produkt2" src="" alt="Zestaw edukacyjny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Edukacyjny</h3>
@@ -800,7 +801,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt3" src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Zestaw rodzinny">
+                        <img data-sheet-id="produkt3" src="" alt="Zestaw rodzinny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Rodzinny</h3>
@@ -814,7 +815,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt4" src="https://i.imgur.com/c8OHTyo.jpeg" alt="Zestaw przedszkolny">
+                        <img data-sheet-id="produkt4" src="" alt="Zestaw przedszkolny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Przedszkolny</h3>
@@ -830,11 +831,10 @@
         </div>
     </section>
 
-    <!-- Construction Section -->
     <section class="construction" id="construction">
         <div class="container construction-container">
             <div class="construction-image fade-in">
-                <img data-sheet-id="konstrukcja" src="https://i.imgur.com/0eDGE2k.jpeg" alt="Konstrukcja planszy drogowej">
+                <img data-sheet-id="konstrukcja" src="" alt="Konstrukcja planszy drogowej">
             </div>
             <div class="construction-content fade-in">
                 <h2>Solidna konstrukcja</h2>
@@ -892,7 +892,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
@@ -940,109 +939,207 @@
         </div>
     </footer>
 
-    <!-- Skrypt integracji z Google Sheets -->
     <script>
-// Konfiguracja - UŻYJ SWOJEGO ID!
-const CONFIG = {
-  SHEET_ID: '1EUPyabqx7KuqVVx0qluRioxphHyo9eTR',
-  SHEET_NAME: 'Arkusz1',
-  UPDATE_INTERVAL: 300000,
-  FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
-  THROTTLE_TIME: 1000
-};
+        // Konfiguracja Google Sheets
+        const CONFIG = {
+            SHEET_ID: '1EUPyabqx7KuqVVx0qluRioxphHyo9eTR',
+            SHEET_NAME: 'Arkusz1',
+            UPDATE_INTERVAL: 300000,
+            FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
+            THROTTLE_TIME: 1000
+        };
 
-// Cache dla ochrony przed częstymi requestami
-let lastUpdateTime = 0;
-const imageCache = new Map();
+        let lastUpdateTime = 0;
+        const imageCache = new Map();
 
-async function fetchSheetData() {
-  try {
-    const now = Date.now();
-    if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
-      console.warn('Throttle: Zbyt częste zapytania');
-      return null;
-    }
-    
-    lastUpdateTime = now;
-    const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME};
-    const response = await fetch(url);
-    
-    if (!response.ok) throw new Error(HTTP error! status: ${response.status});
-    return await response.text();
-  } catch (error) {
-    console.error('Błąd pobierania danych z Google Sheets:', error);
-    return null;
-  }
-}
-
-function processCSVData(csvData) {
-  const rows = csvData.split('\n').slice(1);
-  const imageData = {};
-  
-  rows.forEach(row => {
-    try {
-      const columns = row.split(',');
-      if (columns.length >= 3) {
-        const id = columns[0].replace(/"/g, '').trim();
-        const url = columns[2].replace(/"/g, '').trim();
-        
-        if (isValidUrl(url)) {
-          imageData[id] = url;
-        } else {
-          console.warn(Nieprawidłowy URL dla ${id}: ${url});
-          imageData[id] = CONFIG.FALLBACK_IMAGE;
+        // Funkcja do pobierania danych z Google Sheets
+        async function fetchSheetData() {
+            try {
+                const now = Date.now();
+                if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
+                    console.warn('Throttle: Zbyt częste zapytania');
+                    return null;
+                }
+                
+                lastUpdateTime = now;
+                const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME};
+                
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(Błąd HTTP! status: ${response.status});
+                
+                return await response.text();
+            } catch (error) {
+                console.error('Błąd pobierania danych z Google Sheets:', error);
+                return null;
+            }
         }
-      }
-    } catch (e) {
-      console.error('Błąd przetwarzania wiersza:', row, e);
-    }
-  });
-  
-  return imageData;
-}
 
-function isValidUrl(string) {
-  try {
-    new URL(string);
-    return true;
-  } catch (_) {
-    return false;
-  }
-}
+        // Przetwarzanie danych CSV
+        function processCSVData(csvData) {
+            const rows = csvData.split('\n').slice(1);
+            const imageData = {};
+            
+            rows.forEach(row => {
+                try {
+                    const columns = row.split(',');
+                    if (columns.length >= 3) {
+                        const id = columns[0].replace(/"/g, '').trim();
+                        const url = columns[2].replace(/"/g, '').trim();
+                        
+                        if (isValidUrl(url)) {
+                            imageData[id] = convertToDirectLink(url);
+                        } else {
+                            console.warn(Nieprawidłowy URL dla ${id}: ${url});
+                            imageData[id] = CONFIG.FALLBACK_IMAGE;
+                        }
+                    }
+                } catch (e) {
+                    console.error('Błąd przetwarzania wiersza:', row, e);
+                }
+            });
+            
+            return imageData;
+        }
 
-function updatePageImages(imageData) {
-  Object.entries(imageData).forEach(([id, url]) => {
-    const elements = document.querySelectorAll([data-sheet-id="${id}"]);
-    
-    elements.forEach(element => {
-      if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
-      
-      if (element.tagName === 'IMG') {
-        element.src = url;
-        console.log(Zaktualizowano: ${id} => ${url});
-      }
-      imageCache.set(id, url);
-    });
-  });
-}
+        // Konwersja linków Google Drive na bezpośrednie
+        function convertToDirectLink(url) {
+            // Dla Google Drive
+            if (url.includes('drive.google.com/file/d/')) {
+                const match = url.match(/\/d\/([^\/]+)/);
+                if (match && match[1]) {
+                    return https://drive.google.com/uc?export=view&id=${match[1]};
+                }
+            }
+            // Dla Dropbox
+            if (url.includes('dropbox.com')) {
+                return url.replace('?dl=0', '?raw=1');
+            }
+            // Dla innych linków
+            return url;
+        }
 
-async function updateImages() {
-  console.log('Rozpoczęto aktualizację zdjęć...');
-  const csvData = await fetchSheetData();
-  if (!csvData) return;
-  
-  const imageData = processCSVData(csvData);
-  updatePageImages(imageData);
-}
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (_) {
+                return false;
+            }
+        }
 
-// Inicjalizacja
-document.addEventListener('DOMContentLoaded', () => {
-  updateImages();
-  setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
-});
+        function updatePageImages(imageData) {
+            Object.entries(imageData).forEach(([id, url]) => {
+                const elements = document.querySelectorAll([data-sheet-id="${id}"]);
+                
+                elements.forEach(element => {
+                    if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
+                    
+                    if (element.tagName === 'IMG') {
+                        element.src = url;
+                        console.log(Zaktualizowano: ${id} => ${url});
+                    }
+                    imageCache.set(id, url);
+                });
+            });
+        }
 
-// Ręczna aktualizacja
-window.manualUpdate = updateImages;
-</script>
+        async function updateImages() {
+            console.log('Rozpoczęto aktualizację zdjęć z Google Sheets...');
+            const csvData = await fetchSheetData();
+            if (!csvData) {
+                console.log('Brak danych z Google Sheets, używam domyślnych zdjęć');
+                return;
+            }
+            
+            const imageData = processCSVData(csvData);
+            updatePageImages(imageData);
+        }
+
+        // Inicjalizacja
+        document.addEventListener('DOMContentLoaded', () => {
+            // Początkowe ładowanie
+            updateImages();
+            
+            // Automatyczna aktualizacja co 5 minut
+            setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
+            
+            // Ręczna aktualizacja przez przycisk (dla testów)
+            const updateButton = document.createElement('button');
+            updateButton.textContent = '🔄 Aktualizuj zdjęcia';
+            updateButton.style.position = 'fixed';
+            updateButton.style.bottom = '20px';
+            updateButton.style.right = '20px';
+            updateButton.style.zIndex = '1000';
+            updateButton.style.padding = '10px 15px';
+            updateButton.style.background = '#3498db';
+            updateButton.style.color = 'white';
+            updateButton.style.border = 'none';
+            updateButton.style.borderRadius = '5px';
+            updateButton.style.cursor = 'pointer';
+            updateButton.onclick = updateImages;
+            document.body.appendChild(updateButton);
+        });
+
+        // Ręczna aktualizacja z konsoli
+        window.manualUpdate = updateImages;
+
+        // Pozostałe funkcjonalności strony
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Obsługa koszyka
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+                
+                // Animacja potwierdzenia
+                button.textContent = '✓ Dodano!';
+                button.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    button.textContent = 'Do koszyka';
+                    button.style.background = '';
+                }, 2000);
+            });
+        });
+        
+        // Animacje pojawiania się
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Informacja o ładowaniu
+        console.log('Strona Plansza Drogowa załadowana. Integracja z Google Sheets aktywna.');
+    </script>
 </body>
 </html>
