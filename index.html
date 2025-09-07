@@ -962,7 +962,7 @@
                 }
                 
                 lastUpdateTime = now;
-                const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME};
+                const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv;
                 
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(Błąd HTTP! status: ${response.status});
