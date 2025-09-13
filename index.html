@@ -91,11 +91,11 @@
             .then(data => {
                 let json = JSON.parse(data.substr(47).slice(0, -2));
                 let rows = json.table.rows;
-                
-                // Erste Datenzeile nach Header
-                let firstRow = rows[0]; // <-- erste echte Datenzeile
-                if (firstRow && firstRow.c[2] && firstRow.c[2].v) {
-                    document.getElementById("hero-img").src = firstRow.c[2].v;
+
+                // Header-Zeile überspringen -> also bei rows[1] anfangen
+                let firstDataRow = rows[1]; 
+                if (firstDataRow && firstDataRow.c[2] && firstDataRow.c[2].v) {
+                    document.getElementById("hero-img").src = firstDataRow.c[2].v;
                 }
             })
             .catch(err => console.error("Fehler beim Laden aus Google Sheet:", err));
