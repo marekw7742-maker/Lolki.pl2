@@ -78,26 +78,27 @@
                 <button class="cta-btn">Zobacz zestawy</button>
             </div>
             <div class="hero-image fade-in">
-                <!-- Hero-Bild aus Google Sheet -->
-                <img id="hero-img" src="https://i.imgur.com/TCT3IPy.jpeg" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <!-- Bild wird dynamisch aus Google Sheet geladen -->
+                <img id="hero-img" src="" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
 
     <script>
-        // Google Sheet einbinden
+        // Google Sheet Daten laden
         fetch("https://docs.google.com/spreadsheets/d/1EUPyabqx7KuqVVx0qluRioxphHyo9eTR/gviz/tq?tqx=out:json&sheet=Tabellenblatt1")
             .then(res => res.text())
             .then(data => {
                 let json = JSON.parse(data.substr(47).slice(0, -2));
                 let rows = json.table.rows;
                 
-                // Erste Zeile (Header) überspringen
-                let firstRow = rows[1];
+                // Erste Datenzeile nach Header
+                let firstRow = rows[0]; // <-- erste echte Datenzeile
                 if (firstRow && firstRow.c[2] && firstRow.c[2].v) {
                     document.getElementById("hero-img").src = firstRow.c[2].v;
                 }
-            });
+            })
+            .catch(err => console.error("Fehler beim Laden aus Google Sheet:", err));
     </script>
 </body>
 </html>
