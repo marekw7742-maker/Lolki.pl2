@@ -18,132 +18,661 @@
             --road: #34495e;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f9f9f9; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        header { background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { display: flex; align-items: center; }
-        .logo h1 { font-size: 1.8rem; font-weight: 700; color: var(--primary); font-family: 'Montserrat', sans-serif; }
-        .logo span { color: var(--secondary); }
-        nav ul { display: flex; list-style: none; }
-        nav li { margin-left: 25px; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 1.1rem; transition: color 0.3s; }
-        nav a:hover { color: var(--secondary); }
-        .header-actions { display: flex; align-items: center; }
-        .cart-btn { background: none; border: none; font-size: 1.4rem; color: var(--primary); margin-right: 20px; cursor: pointer; position: relative; }
-        .cart-count { position: absolute; top: -8px; right: -8px; background: var(--secondary); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
-        .cta-btn { background-color: var(--secondary); color: white; border: none; padding: 10px 25px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem; }
-        .cta-btn:hover { background-color: #c0392b; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
-        
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a2b3c 100%); color: white; padding: 100px 0; position: relative; overflow: hidden; }
-        .hero-content { display: flex; align-items: center; position: relative; z-index: 2; }
-        .hero-text { flex: 1; padding-right: 40px; }
-        .hero-text h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; font-weight: 700; }
-        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; opacity: 0.9; }
-        .hero-image { flex: 1; position: relative; display: flex; justify-content: center; animation: float 6s ease-in-out infinite; }
-        
-        @keyframes float { 
-            0% { transform: translateY(0px); } 
-            50% { transform: translateY(-20px); } 
-            100% { transform: translateY(0px); } 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
         
-        .features { padding: 100px 0; background: white; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
-        .section-header p { color: var(--gray); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
-        .feature-card { background: var(--light); border-radius: 15px; padding: 35px 30px; text-align: center; transition: all 0.4s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .feature-icon { font-size: 3.5rem; color: var(--secondary); margin-bottom: 25px; }
-        .feature-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary); font-weight: 600; }
-        .feature-card p { color: var(--gray); }
-        
-        .applications { padding: 100px 0; background: var(--light); }
-        .applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .application-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: all 0.4s; }
-        .application-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .application-image { height: 200px; background: var(--light); position: relative; overflow: hidden; }
-        .application-image img { width: 100%; height: 100%; object-fit: cover; }
-        .application-content { padding: 25px; }
-        .application-content h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
-        
-        .products { padding: 100px 0; background: white; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
-        .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: all 0.4s; position: relative; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .product-image { height: 280px; background: var(--light); position: relative; overflow: hidden; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .product-card:hover .product-image img { transform: scale(1.05); }
-        .product-badge { position: absolute; top: 15px; right: 15px; background: var(--secondary); color: white; padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
-        .product-info { padding: 25px; }
-        .product-info h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--primary); font-weight: 600; }
-        .product-description { color: var(--gray); margin-bottom: 15px; font-size: 0.95rem; }
-        .product-price { font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 20px; }
-        .product-actions { display: flex; justify-content: space-between; }
-        .product-btn { flex: 1; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; transition: all 0.3s; font-size: 1rem; }
-        .add-to-cart { background: var(--primary); color: white; margin-right: 12px; }
-        .add-to-cart:hover { background: #1a2b3c; }
-        .details { background: var(--light); color: var(--dark); }
-        .details:hover { background: #dfe6e9; }
-        
-        .construction { padding: 100px 0; background: var(--light); }
-        .construction-container { display: flex; align-items: center; gap: 50px; }
-        .construction-image { flex: 1; height: 500px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-        .construction-image img { width: 100%; height: 100%; object-fit: cover; }
-        .construction-content { flex: 1; }
-        .construction-content h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 25px; font-weight: 700; }
-        .construction-content p { margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; }
-        .materials-list { margin: 35px 0; }
-        .material-item { display: flex; align-items: center; margin-bottom: 20px; }
-        .material-icon { width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; color: var(--secondary); font-size: 1.5rem; flex-shrink: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .material-text h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--dark); }
-        
-        footer { background: var(--primary); color: white; padding: 80px 0 30px; position: relative; }
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-col h3 { font-size: 1.5rem; margin-bottom: 25px; position: relative; padding-bottom: 15px; }
-        .footer-col h3::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--secondary); }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #ddd; text-decoration: none; transition: color 0.3s; }
-        .footer-col ul li a:hover { color: white; }
-        .social-icons { display: flex; margin-top: 20px; }
-        .social-icons a { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; margin-right: 12px; color: white; font-size: 1.3rem; transition: background 0.3s; }
-        .social-icons a:hover { background: var(--secondary); }
-        .contact-info li { display: flex; align-items: flex-start; margin-bottom: 15px; }
-        .contact-info i { margin-right: 15px; color: var(--secondary); font-size: 1.2rem; min-width: 20px; }
-        .copyright { text-align: center; padding-top: 40px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); color: #aaa; font-size: 0.9rem; }
-        
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(20px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        
-        .loading { display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; }
-        @keyframes spin { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        @media (max-width: 992px) { 
-            .hero-content { flex-direction: column; } 
-            .hero-text { padding-right: 0; margin-bottom: 50px; text-align: center; } 
-            .construction-container { flex-direction: column; } 
-            .construction-content { margin-bottom: 50px; text-align: center; } 
-            nav ul { display: none; } 
-        } 
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         
-        @media (max-width: 768px) { 
-            .hero-text h2 { font-size: 2.3rem; } 
-            .section-header h2 { font-size: 2.2rem; } 
-            .construction-image { height: 400px; } 
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-btn {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-right: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cta-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .cta-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2b3c 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .hero-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .road-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 350px;
+        }
+        
+        .road-tile {
+            width: 110px;
+            height: 110px;
+            background: var(--road);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 3px solid var(--grass);
+        }
+        
+        .road-tile:hover {
+            transform: scale(1.05);
+        }
+        
+        .road-tile::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Features section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Applications section */
+        .applications {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .application-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+        }
+        
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .application-image {
+            height: 200px;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .application-content {
+            padding: 25px;
+        }
+        
+        .application-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Products section */
+        .products {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 280px;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .product-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            margin-right: 12px;
+        }
+        
+        .add-to-cart:hover {
+            background: #1a2b3c;
+        }
+        
+        .details {
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .details:hover {
+            background: #dfe6e9;
+        }
+        
+        /* Construction section */
+        .construction {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .construction-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .construction-image {
+            flex: 1;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .construction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .construction-content {
+            flex: 1;
+        }
+        
+        .construction-content h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .construction-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .materials-list {
+            margin: 35px 0;
+        }
+        
+        .material-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .material-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .material-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 12px;
+            color: white;
+            font-size: 1.3rem;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .construction-container {
+                flex-direction: column;
+            }
+            
+            .construction-content {
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .construction-image {
+                height: 400px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -168,6 +697,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text fade-in">
@@ -176,11 +706,12 @@
                 <button class="cta-btn">Zobacz zestawy</button>
             </div>
             <div class="hero-image fade-in">
-                <img id="hero-img" src="" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <img src="https://i.imgur.com/vhE8XZM.jpeg" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <div class="section-header fade-in">
@@ -220,6 +751,7 @@
         </div>
     </section>
 
+    <!-- Applications Section -->
     <section class="applications" id="applications">
         <div class="container">
             <div class="section-header fade-in">
@@ -229,7 +761,7 @@
             <div class="applications-grid">
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja1" src="" alt="Dla dzieci">
+                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Dla dzieci">
                     </div>
                     <div class="application-content">
                         <h3>Dla dzieci</h3>
@@ -238,7 +770,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja2" src="" alt="OSK">
+                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="OSK">
                     </div>
                     <div class="application-content">
                         <h3>Dla OSK</h3>
@@ -247,7 +779,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja3" src="" alt="Przedszkola">
+                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Przedszkola">
                     </div>
                     <div class="application-content">
                         <h3>Dla przedszkoli</h3>
@@ -256,7 +788,7 @@
                 </div>
                 <div class="application-card fade-in">
                     <div class="application-image">
-                        <img data-sheet-id="aplikacja4" src="" alt="Szkoły">
+                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="Szkoły">
                     </div>
                     <div class="application-content">
                         <h3>Dla szkół</h3>
@@ -267,6 +799,7 @@
         </div>
     </section>
 
+    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <div class="section-header fade-in">
@@ -276,7 +809,7 @@
             <div class="products-grid">
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt1" src="" alt="Zestaw startowy Plansza Drogowa">
+                        <img src="https://i.imgur.com/vhE8XZM.jpeg" alt="Zestaw startowy Plansza Drogowa">
                         <div class="product-badge">BESTSELLER</div>
                     </div>
                     <div class="product-info">
@@ -291,7 +824,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt2" src="" alt="Zestaw edukacyjny">
+                        <img src="https://i.imgur.com/VkcUuCx.jpeg" alt="Zestaw edukacyjny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Edukacyjny</h3>
@@ -305,7 +838,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt3" src="" alt="Zestaw rodzinny">
+                        <img src="https://i.imgur.com/I5T6cFQ.jpeg" alt="Zestaw rodzinny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Rodzinny</h3>
@@ -319,7 +852,7 @@
                 </div>
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img data-sheet-id="produkt4" src="" alt="Zestaw przedszkolny">
+                        <img src="https://i.imgur.com/c8OHTyo.jpeg" alt="Zestaw przedszkolny">
                     </div>
                     <div class="product-info">
                         <h3>Zestaw Przedszkolny</h3>
@@ -335,10 +868,11 @@
         </div>
     </section>
 
+    <!-- Construction Section -->
     <section class="construction" id="construction">
         <div class="container construction-container">
             <div class="construction-image fade-in">
-                <img data-sheet-id="konstrukcja" src="" alt="Konstrukcja planszy drogowej">
+                <img src="https://i.imgur.com/0eDGE2k.jpeg" alt="Konstrukcja planszy drogowej">
             </div>
             <div class="construction-content fade-in">
                 <h2>Solidna konstrukcja</h2>
@@ -352,7 +886,7 @@
                         </div>
                         <div class="material-text">
                             <h3>Płyta multiplex 9mm</h3>
-                            <p>Solidna podstawa każdego modułu</p>
+                            <p>Solidna podstawa każ***** modułu</p>
                         </div>
                     </div>
                     <div class="material-item">
@@ -396,6 +930,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
@@ -444,222 +979,56 @@
     </footer>
 
     <script>
-        // Google Sheet Daten laden für das Hero-Bild
-        fetch("https://docs.google.com/spreadsheets/d/1EUPyabqx7KuqVVx0qluRioxphHyo9eTR/gviz/tq?tqx=out:json&sheet=Tabellenblatt1")
-            .then(res => res.text())
-            .then(data => {
-                let json = JSON.parse(data.substr(47).slice(0, -2));
-                let rows = json.table.rows;
-
-                // Header-Zeile überspringen -> also bei rows[1] anfangen
-                let firstDataRow = rows[1]; 
-                if (firstDataRow && firstDataRow.c[2] && firstDataRow.c[2].v) {
-                    document.getElementById("hero-img").src = firstDataRow.c[2].v;
-                }
-            })
-            .catch(err => console.error("Fehler beim Laden aus Google Sheet:", err));
-
-        // Konfiguracja Google Sheets
-        const CONFIG = {
-            SHEET_ID: '1EUPyabqx7KuqVVx0qluRioxphHyo9eTR',
-            SHEET_NAME: 'Arkusz1',
-            UPDATE_INTERVAL: 300000,
-            FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5CbMSExYthZCB6ZGTFviBjemVza8SFY2ggd3N0xIVwaWxhPC90ZXh0Pjwvc3ZnPg==',
-            THROTTLE_TIME: 1000
-        };
-
-        let lastUpdateTime = 0;
-        const imageCache = new Map();
-
-        // Funkcja do pobierania danych z Google Sheets
-        async function fetchSheetData() {
-            try {
-                const now = Date.now();
-                if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
-                    console.warn('Throttle: Zbyt częste zapytania');
-                    return null;
-                }
-
-                lastUpdateTime = now;
-                const url = https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${CONFIG.SHEET_NAME};
-                const response = await fetch(url);
-                if (!response.ok) throw new Error(Błąd HTTP! status: ${response.status});
-
-                return await response.text();
-            } catch (error) {
-                console.error('Błąd pobierania danych z Google Sheets:', error);
-                return null;
-            }
-        }
-
-        // Przetwarzanie danych CSV
-        function processCSVData(csvData) {
-            const rows = csvData.split('\n').slice(1);
-            const imageData = {};
-
-            rows.forEach(row => {
-                try {
-                    const columns = row.split(',');
-                    if (columns.length >= 3) {
-                        const id = columns[0].replace(/"/g, '').trim();
-                        const url = columns[2].replace(/"/g, '').trim();
-
-                        if (isValidUrl(url)) {
-                            imageData[id] = convertToDirectLink(url);
-                        } else {
-                            console.warn(Nieprawidłowy URL dla ${id}: ${url});
-                            imageData[id] = CONFIG.FALLBACK_IMAGE;
-                        }
-                    }
-                } catch (e) {
-                    console.error('Błąd przetwarzania wiersza:', row, e);
-                }
-            });
-
-            return imageData;
-        }
-
-        // Konwersja linków Google Drive na bezpośrednie
-        function convertToDirectLink(url) {
-            console.log('Konwertuję URL:', url);
-
-            // Dla Google Drive
-            if (url.includes('drive.google.com/file/d/')) {
-                const match = url.match(/\/d\/([^\/]+)/);
-                if (match && match[1]) {
-                    const newUrl = https://drive.google.com/uc?export=view&id=${match[1]};
-                    console.log('Google Drive Link skonwertowany:', newUrl);
-                    return newUrl;
-                }
-            }
-
-            // Dla Imgur Album Links
-            if (url.includes('imgur.com/a/')) {
-                const match = url.match(/imgur\.com\/a\/([^\/]+)/);
-                if (match && match[1]) {
-                    const newUrl = https://i.imgur.com/${match[1]}.jpeg;
-                    console.log('Imgur Album Link skonwertowany:', newUrl);
-                    return newUrl;
-                }
-            }
-
-            // Dla normalnych Imgur Links
-            if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
-                const newUrl = url.replace('imgur.com', 'i.imgur.com') + '.jpeg';
-                console.log('Imgur Link poprawiony:', newUrl);
-                return newUrl;
-            }
-
-            console.log('URL pozostaje bez zmian:', url);
-            return url;
-        }
-
-        function isValidUrl(string) {
-            try {
-                new URL(string);
-                return true;
-            } catch (_) {
-                return false;
-            }
-        }
-
-        function updatePageImages(imageData) {
-            Object.entries(imageData).forEach(([id, url]) => {
-                const elements = document.querySelectorAll([data-sheet-id="${id}"]);
-
-                elements.forEach(element => {
-                    if (imageCache.get(id) === url && element.src !== CONFIG.FALLBACK_IMAGE) return;
-
-                    if (element.tagName === 'IMG') {
-                        element.src = url;
-                        console.log(Zaktualizowano: ${id} => ${url});
-                    }
-                    imageCache.set(id, url);
-                });
-            });
-        }
-
-        async function updateImages() {
-            console.log('Rozpoczynam aktualizację zdjęć z Google Sheets...');
-            const csvData = await fetchSheetData();
-            if (!csvData) {
-                console.log('Brak danych z Google Sheets, używam domyślnych zdjęć');
-                return;
-            }
-
-            const imageData = processCSVData(csvData);
-            updatePageImages(imageData);
-        }
-
-        // Inicjalizacja
-        document.addEventListener('DOMContentLoaded', () => {
-            // Początkowe ładowanie
-            updateImages();
-
-            // Automatyczna aktualizacja co 5 minut
-            setInterval(updateImages, CONFIG.UPDATE_INTERVAL);
-        });
-
-        // Ręczna aktualizacja z konsoli
-        window.manualUpdate = updateImages;
-
-        // Pozostałe funkcjonalności strony
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-
-        // Obsługa koszyka
+        
+        // Simple cart functionality
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
         const cartCount = document.querySelector('.cart-count');
         let count = 0;
-
+        
         addToCartButtons.forEach(button => {
             button.addEventListener('click', () => {
                 count++;
                 cartCount.textContent = count;
-
-                // Animacja potwierdzenia
-                button.textContent = '✓ Dodano!';
-                button.style.background = '#27ae60';
-
+                
+                // Animation effect
+                button.textContent = 'Dodano!';
+                button.style.backgroundColor = '#2ecc71';
+                
                 setTimeout(() => {
                     button.textContent = 'Do koszyka';
-                    button.style.background = '';
+                    button.style.backgroundColor = '';
                 }, 2000);
             });
         });
-
-        // Animacje pojawiania się
+        
+        // Animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, { threshold: 0.1 });
-
+        
         fadeElements.forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
             observer.observe(el);
         });
-
-        // Informacja o ładowaniu
-        console.log('Strona Plansza Drogowa załadowana. Integracja z Google Sheets aktywna.');
     </script>
 </body>
 </html>
