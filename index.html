@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Plansza Drogowa - Magnetyczny System Edukacyjny</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet"/>
     <style>
         :root {
             --primary: #2c3e50;
@@ -20,35 +20,124 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: #f9f9f9; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header styles */
         header { background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { display:flex; align-items:center; }
         .logo h1 { font-size: 1.8rem; font-weight: 700; color: var(--primary); font-family: 'Montserrat', sans-serif; }
         .logo span { color: var(--secondary); }
-        nav ul { display: flex; list-style: none; }
-        nav li { margin-left: 25px; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 1.1rem; transition: color 0.3s; }
+        nav ul { display:flex; list-style:none; }
+        nav li { margin-left:25px; }
+        nav a { text-decoration:none; color:var(--dark); font-weight:500; font-size:1.1rem; transition: color 0.3s; }
         nav a:hover { color: var(--secondary); }
-        .cart-btn { background: none; border: none; font-size: 1.4rem; color: var(--primary); margin-right: 20px; cursor: pointer; position: relative; }
-        .cart-count { position: absolute; top: -8px; right: -8px; background: var(--secondary); color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
-        .cta-btn { background-color: var(--secondary); color: white; border: none; padding: 10px 25px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem; }
-        .cta-btn:hover { background-color: #c0392b; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a2b3c 100%); color: white; padding: 100px 0; position: relative; overflow: hidden; }
-        .hero-content { display: flex; align-items: center; position: relative; z-index: 2; }
-        .hero-text { flex: 1; padding-right: 40px; }
-        .hero-text h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; font-weight: 700; }
-        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; opacity: 0.9; }
-        .hero-image { flex: 1; display: flex; justify-content: center; animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        .header-actions { display:flex; align-items:center; }
+        .cart-btn { background:none; border:none; font-size:1.4rem; color:var(--primary); margin-right:20px; cursor:pointer; position:relative; }
+        .cart-count { position:absolute; top:-8px; right:-8px; background:var(--secondary); color:white; border-radius:50%; width:20px; height:20px; font-size:0.7rem; display:flex; align-items:center; justify-content:center; }
+        .cta-btn { background-color:var(--secondary); color:white; border:none; padding:10px 25px; border-radius:30px; font-weight:600; cursor:pointer; transition:all 0.3s; font-size:1rem; }
+        .cta-btn:hover { background-color:#c0392b; transform:translateY(-2px); box-shadow:0 5px 15px rgba(231,76,60,0.3); }
+
+        /* Hero section */
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #1a2b3c 100%); color:white; padding:100px 0; position:relative; overflow:hidden; }
+        .hero-content { display:flex; align-items:center; position:relative; z-index:2; }
+        .hero-text { flex:1; padding-right:40px; }
+        .hero-text h2 { font-size:3rem; margin-bottom:20px; line-height:1.2; font-weight:700; }
+        .hero-text p { font-size:1.2rem; margin-bottom:30px; max-width:600px; opacity:0.9; }
+        .hero-image { flex:1; position:relative; display:flex; justify-content:center; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%{transform:translateY(0px);}50%{transform:translateY(-20px);}100%{transform:translateY(0px);} }
+
+        /* Features */
+        .features { padding:100px 0; background:white; }
+        .section-header { text-align:center; margin-bottom:60px; }
+        .section-header h2 { font-size:2.8rem; color:var(--primary); margin-bottom:15px; font-weight:700; }
+        .section-header p { color:var(--gray); max-width:700px; margin:0 auto; font-size:1.1rem; }
+        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:35px; }
+        .feature-card { background:var(--light); border-radius:15px; padding:35px 30px; text-align:center; transition:all 0.4s; box-shadow:0 5px 15px rgba(0,0,0,0.05); }
+        .feature-card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.1); }
+        .feature-icon { font-size:3.5rem; color:var(--secondary); margin-bottom:25px; }
+        .feature-card h3 { font-size:1.6rem; margin-bottom:15px; color:var(--primary); font-weight:600; }
+        .feature-card p { color:var(--gray); }
+
+        /* Applications */
+        .applications { padding:100px 0; background:var(--light); }
+        .applications-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+        .application-card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.08); transition:all 0.4s; }
+        .application-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+        .application-image { height:200px; background:var(--light); position:relative; overflow:hidden; }
+        .application-image img { width:100%; height:100%; object-fit:cover; }
+        .application-content { padding:25px; }
+        .application-content h3 { font-size:1.5rem; margin-bottom:15px; color:var(--primary); }
+
+        /* Products */
+        .products { padding:100px 0; background:white; }
+        .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:35px; }
+        .product-card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.08); transition:all 0.4s; position:relative; }
+        .product-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+        .product-image { height:280px; background:var(--light); position:relative; overflow:hidden; }
+        .product-image img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+        .product-card:hover .product-image img { transform:scale(1.05); }
+        .product-badge { position:absolute; top:15px; right:15px; background:var(--secondary); color:white; padding:5px 15px; border-radius:20px; font-weight:600; font-size:0.9rem; }
+        .product-info { padding:25px; }
+        .product-info h3 { font-size:1.4rem; margin-bottom:10px; color:var(--primary); font-weight:600; }
+        .product-description { color:var(--gray); margin-bottom:15px; font-size:0.95rem; }
+        .product-price { font-size:1.5rem; font-weight:700; color:var(--secondary); margin-bottom:20px; }
+        .product-actions { display:flex; justify-content:space-between; }
+        .product-btn { flex:1; padding:12px; border:none; border-radius:8px; cursor:pointer; font-weight:500; transition:all 0.3s; font-size:1rem; }
+        .add-to-cart { background:var(--primary); color:white; margin-right:12px; }
+        .add-to-cart:hover { background:#1a2b3c; }
+        .details { background:var(--light); color:var(--dark); }
+        .details:hover { background:#dfe6e9; }
+
+        /* Construction section */
+        .construction { padding:100px 0; background:var(--light); }
+        .construction-container { display:flex; align-items:center; gap:50px; }
+        .construction-image { flex:1; height:500px; border-radius:20px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+        .construction-image img { width:100%; height:100%; object-fit:cover; }
+        .construction-content { flex:1; }
+        .construction-content h2 { font-size:2.8rem; color:var(--primary); margin-bottom:25px; font-weight:700; }
+        .construction-content p { margin-bottom:20px; font-size:1.1rem; line-height:1.8; }
+        .materials-list { margin:35px 0; }
+        .material-item { display:flex; align-items:center; margin-bottom:20px; }
+        .material-icon { width:50px; height:50px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:20px; color:var(--secondary); font-size:1.5rem; flex-shrink:0; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+        .material-text h3 { font-size:1.3rem; margin-bottom:5px; color:var(--dark); }
+
+        /* Footer */
+        footer { background:var(--primary); color:white; padding:80px 0 30px; position:relative; }
+        .footer-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; }
+        .footer-col h3 { font-size:1.5rem; margin-bottom:25px; position:relative; padding-bottom:15px; }
+        .footer-col h3::after { content:""; position:absolute; bottom:0; left:0; width:50px; height:3px; background:var(--secondary); }
+        .footer-col ul { list-style:none; }
+        .footer-col ul li { margin-bottom:12px; }
+        .footer-col ul li a { color:#ddd; text-decoration:none; transition:color 0.3s; }
+        .footer-col ul li a:hover { color:white; }
+        .social-icons { display:flex; margin-top:20px; }
+        .social-icons a { display:flex; align-items:center; justify-content:center; width:45px; height:45px; background:rgba(255,255,255,0.1); border-radius:50%; margin-right:12px; color:white; font-size:1.3rem; transition:background 0.3s; }
+        .social-icons a:hover { background:var(--secondary); }
+        .contact-info li { display:flex; align-items:flex-start; margin-bottom:15px; }
+        .contact-info i { margin-right:15px; color:var(--secondary); font-size:1.2rem; min-width:20px; }
+        .copyright { text-align:center; padding-top:40px; margin-top:50px; border-top:1px solid rgba(255,255,255,0.1); color:#aaa; font-size:0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content { flex-direction:column; }
+            .hero-text { padding-right:0; margin-bottom:50px; text-align:center; }
+            .construction-container { flex-direction:column; }
+            .construction-content { margin-bottom:50px; text-align:center; }
+            nav ul { display:none; }
+        }
+        @media (max-width: 768px) {
+            .hero-text h2 { font-size:2.3rem; }
+            .section-header h2 { font-size:2.2rem; }
+            .construction-image { height:400px; }
+        }
+
+        /* Animation */
+        @keyframes fadeIn { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .section { padding: 80px 0; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .product-card { background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .product-card .info { padding: 20px; }
-        .product-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--primary); }
-        .product-card p { font-size: 1rem; color: var(--gray); }
+
+        /* small loading placeholder */
+        .loading { display:inline-block; width:20px; height:20px; border:3px solid #f3f3f3; border-top:3px solid #3498db; border-radius:50%; animation:spin 1s linear infinite; }
+        @keyframes spin { 0% { transform:rotate(0deg);} 100% { transform:rotate(360deg);} }
     </style>
 </head>
 <body>
@@ -86,65 +175,472 @@
                 <button class="cta-btn">Zobacz zestawy</button>
             </div>
             <div class="hero-image fade-in">
-                <!-- Hero-Bild aus Sheet -->
-                <img data-sheet-id="hero" src="" alt="Magnetyczna plansza drogowa" style="max-width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <!-- Bild wird aus Sheet geholt (numeracja = "hero") -->
+                <img data-sheet-id="hero" src="" alt="Magnetyczna plansza drogowa" style="max-width:100%; border-radius:15px; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
 
-    <!-- Produkte -->
-    <section class="section" id="products">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2 style="text-align:center; margin-bottom:40px;">Nasze produkty</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img data-sheet-id="produkt1" src="" alt="Produkt 1">
-                    <div class="info">
-                        <h3>Zestaw Podstawowy</h3>
-                        <p>Idealny do rozpoczęcia nauki przepisów drogowych.</p>
+            <div class="section-header fade-in">
+                <h2>Dlaczego nasza plansza?</h2>
+                <p>Innowacyjne rozwiązanie łączące edukację z zabawą</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Edukacja przez zabawę</h3>
+                    <p>Skuteczna nauka zasad ruchu drogowego w formie angażującej zabawy</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-magnet"></i></div>
+                    <h3>System magnetyczny</h3>
+                    <p>Łatwe łączenie modułów dzięki mocnym magnesom neodymowym</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Modułowa konstrukcja</h3>
+                    <p>Twórz własne układy dróg łącząc elementy w nieskończone konfiguracje</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Trwałe wykonanie</h3>
+                    <p>Wysokiej jakości materiały odporne na intensywne użytkowanie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications" id="applications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Zastosowania planszy</h2>
+                <p>Sprawdź gdzie możesz wykorzystać nasz system edukacyjny</p>
+            </div>
+            <div class="applications-grid">
+                <div class="application-card fade-in">
+                    <div class="application-image">
+                        <img data-sheet-id="aplikacja1" src="" alt="Dla dzieci">
+                    </div>
+                    <div class="application-content">
+                        <h3>Dla dzieci</h3>
+                        <p>Świetna zabawa z resorakami połączona z nauką zasad ruchu drogowego</p>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img data-sheet-id="produkt2" src="" alt="Produkt 2">
-                    <div class="info">
-                        <h3>Zestaw Rozszerzony</h3>
-                        <p>Więcej elementów i możliwości dla zaawansowanej nauki.</p>
+                <div class="application-card fade-in">
+                    <div class="application-image">
+                        <img data-sheet-id="aplikacja2" src="" alt="OSK">
+                    </div>
+                    <div class="application-content">
+                        <h3>Dla OSK</h3>
+                        <p>Pomoc dydaktyczna dla ośrodków szkolenia kierowców</p>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img data-sheet-id="produkt3" src="" alt="Produkt 3">
-                    <div class="info">
-                        <h3>Zestaw Premium</h3>
-                        <p>Pełny zestaw z dodatkowymi funkcjami i elementami.</p>
+                <div class="application-card fade-in">
+                    <div class="application-image">
+                        <img data-sheet-id="aplikacja3" src="" alt="Przedszkola">
+                    </div>
+                    <div class="application-content">
+                        <h3>Dla przedszkoli</h3>
+                        <p>Nauka bezpieczeństwa na drodze w formie zabawy dla najmłodszych</p>
+                    </div>
+                </div>
+                <div class="application-card fade-in">
+                    <div class="application-image">
+                        <img data-sheet-id="aplikacja4" src="" alt="Szkoły">
+                    </div>
+                    <div class="application-content">
+                        <h3>Dla szkół</h3>
+                        <p>Edukacja komunikacyjna na lekcjach wychowania komunikacyjnego</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nasze produkty</h2>
+                <p>Wybierz zestaw dopasowany do Twoich potrzeb</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img data-sheet-id="produkt1" src="" alt="Zestaw startowy Plansza Drogowa">
+                        <div class="product-badge">BESTSELLER</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Zestaw Startowy</h3>
+                        <p class="product-description">12 modułów magnetycznych z pełną infrastrukturą drogową</p>
+                        <div class="product-price">349,99 zł</div>
+                        <div class="product-actions">
+                            <button class="product-btn add-to-cart">Do koszyka</button>
+                            <button class="product-btn details">Szczegóły</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img data-sheet-id="produkt2" src="" alt="Zestaw edukacyjny">
+                    </div>
+                    <div class="product-info">
+                        <h3>Zestaw Edukacyjny</h3>
+                        <p class="product-description">24 moduły + znaki drogowe + instrukcja metodyczna</p>
+                        <div class="product-price">599,99 zł</div>
+                        <div class="product-actions">
+                            <button class="product-btn add-to-cart">Do koszyka</button>
+                            <button class="product-btn details">Szczegóły</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img data-sheet-id="produkt3" src="" alt="Zestaw rodzinny">
+                    </div>
+                    <div class="product-info">
+                        <h3>Zestaw Rodzinny</h3>
+                        <p class="product-description">16 modułów + autka + znaki drogowe</p>
+                        <div class="product-price">449,99 zł</div>
+                        <div class="product-actions">
+                            <button class="product-btn add-to-cart">Do koszyka</button>
+                            <button class="product-btn details">Szczegóły</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img data-sheet-id="produkt4" src="" alt="Zestaw przedszkolny">
+                    </div>
+                    <div class="product-info">
+                        <h3>Zestaw Przedszkolny</h3>
+                        <p class="product-description">20 modułów + duże znaki + scenariusze zajęć</p>
+                        <div class="product-price">549,99 zł</div>
+                        <div class="product-actions">
+                            <button class="product-btn add-to-cart">Do koszyka</button>
+                            <button class="product-btn details">Szczegóły</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Construction Section -->
+    <section class="construction" id="construction">
+        <div class="container construction-container">
+            <div class="construction-image fade-in">
+                <img data-sheet-id="konstrukcja" src="" alt="Konstrukcja planszy drogowej">
+            </div>
+            <div class="construction-content fade-in">
+                <h2>Solidna konstrukcja</h2>
+                <p>Nasza plansza drogowa to połączenie trwałości i funkcjonalności. Każdy element jest starannie wykonany z najwyższej jakości materiałów.</p>
+                <p>Gwarantujemy bezpieczeństwo i wytrzymałość nawet przy intensywnym użytkowaniu.</p>
+
+                <div class="materials-list">
+                    <div class="material-item">
+                        <div class="material-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="material-text">
+                            <h3>Płyta multiplex 9mm</h3>
+                            <p>Solidna podstawa każdego modułu</p>
+                        </div>
+                    </div>
+
+                    <div class="material-item">
+                        <div class="material-icon"><i class="fas fa-border-style"></i></div>
+                        <div class="material-text">
+                            <h3>Krawężniki 5mm</h3>
+                            <p>Wyraźne oznaczenie krawędzi jezdni</p>
+                        </div>
+                    </div>
+
+                    <div class="material-item">
+                        <div class="material-icon"><i class="fas fa-magnet"></i></div>
+                        <div class="material-text">
+                            <h3>Magnesy neodymowe</h3>
+                            <p>Mocne łączenie modułów</p>
+                        </div>
+                    </div>
+
+                    <div class="material-item">
+                        <div class="material-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="material-text">
+                            <h3>Wykładzina trawiasta</h3>
+                            <p>Realistyczne tło dla układu drogowego</p>
+                        </div>
+                    </div>
+
+                    <div class="material-item">
+                        <div class="material-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="material-text">
+                            <h3>Powłoka ochronna</h3>
+                            <p>Zabezpieczenie przed uszkodzeniami</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Plansza Drogowa</h3>
+                    <p>Innowacyjny system edukacyjny do nauki zasad ruchu drogowego poprzez zabawę.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Sklep</h3>
+                    <ul>
+                        <li><a href="#">Zestawy</a></li>
+                        <li><a href="#">Akcesoria</a></li>
+                        <li><a href="#">Promocje</a></li>
+                        <li><a href="#">Nowości</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Informacje</h3>
+                    <ul>
+                        <li><a href="#">O nas</a></li>
+                        <li><a href="#">Realizacje</a></li>
+                        <li><a href="#">Dostawa i płatności</a></li>
+                        <li><a href="#">Regulamin</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> ul. Drogowa 15, Warszawa</li>
+                        <li><i class="fas fa-phone"></i> +48 123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> kontakt@planszadrogowa.pl</li>
+                        <li><i class="fas fa-clock"></i> Pn-Pt: 8:00-16:00</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Plansza Drogowa. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Google Sheet Daten laden
-        fetch("https://docs.google.com/spreadsheets/d/1EUPyabqx7KuqVVx0qluRioxphHyo9eTR/gviz/tq?tqx=out:json&sheet=Tabellenblatt1")
-            .then(res => res.text())
-            .then(data => {
-                let json = JSON.parse(data.substr(47).slice(0, -2));
-                let rows = json.table.rows;
+        /********* Konfiguration *********/
+        const CONFIG = {
+            SHEET_ID: '1EUPyabqx7KuqVVx0qluRioxphHyo9eTR',
+            SHEET_NAME: 'Tabellenblatt1',        // dein Blattname
+            UPDATE_INTERVAL: 300000,             // 5 Minuten
+            THROTTLE_TIME: 1000,                 // ms zwischen Requests
+            FALLBACK_IMAGE: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5Ij5ObyBpbWFnZTwvdGV4dD48L3N2Zz4='
+        };
 
-                // Header (erste Zeile) überspringen
-                rows.slice(1).forEach(row => {
-                    if (row.c && row.c[0] && row.c[0].v && row.c[2] && row.c[2].v) {
-                        let id = row.c[0].v.trim();  // numeracja (z.B. hero, produkt1)
-                        let url = row.c[2].v.trim(); // adres zdjęcia
+        let lastUpdateTime = 0;
+        const imageCache = new Map();
 
-                        // passendes <img> suchen und src setzen
-                        let img = document.querySelector(`img[data-sheet-id="${id}"]`);
-                        if (img) {
-                            img.src = url;
+        /********* Hilfsfunktionen *********/
+        function isValidUrl(s) {
+            try {
+                new URL(s);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function convertToDirectLink(url) {
+            if (!url) return url;
+
+            // normalize
+            url = url.trim();
+
+            // Add protocol if missing
+            if (url.startsWith('//')) url = 'https:' + url;
+            if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+            // Google Drive share link -> direct view
+            // formats supported:
+            //  - https://drive.google.com/file/d/FILEID/view?usp=sharing
+            //  - https://drive.google.com/open?id=FILEID
+            //  - https://drive.google.com/uc?export=view&id=FILEID (already direct)
+            if (url.includes('drive.google.com')) {
+                // if already uc? just return
+                if (url.includes('uc?')) return url;
+                const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                if (m && m[1]) {
+                    return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+                }
+                const q = new URL(url);
+                if (q.searchParams && q.searchParams.get('id')) {
+                    return `https://drive.google.com/uc?export=view&id=${q.searchParams.get('id')}`;
+                }
+            }
+
+            // Imgur album link https://imgur.com/a/ID -> single image guess
+            if (url.match(/imgur\.com\/a\/([a-zA-Z0-9]+)/)) {
+                const m = url.match(/imgur\.com\/a\/([a-zA-Z0-9]+)/);
+                if (m && m[1]) return `https://i.imgur.com/${m[1]}.jpeg`;
+            }
+
+            // Imgur non-i.imgur links -> convert
+            if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
+                // handle urls like https://imgur.com/abcd
+                const m = url.match(/imgur\.com\/(gallery\/)?([a-zA-Z0-9]+)/);
+                if (m && m[2]) return `https://i.imgur.com/${m[2]}.jpeg`;
+            }
+
+            return url;
+        }
+
+        /********* Fetch Google Sheet (gviz JSON) *********/
+        async function fetchSheetJson() {
+            const now = Date.now();
+            if (now - lastUpdateTime < CONFIG.THROTTLE_TIME) {
+                console.warn('Throttle active, skipping fetch');
+                return null;
+            }
+            lastUpdateTime = now;
+
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(CONFIG.SHEET_NAME)}`;
+                const res = await fetch(url, {cache: "no-store"});
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const txt = await res.text();
+
+                // Google returns something like: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
+                // find the JSON object inside
+                const start = txt.indexOf('{');
+                const end = txt.lastIndexOf('}');
+                if (start === -1 || end === -1) throw new Error('Ungültige Sheet-Antwort');
+                const jsonText = txt.slice(start, end + 1);
+                const parsed = JSON.parse(jsonText);
+                return parsed;
+            } catch (err) {
+                console.error('Fehler beim Laden des Sheets:', err);
+                return null;
+            }
+        }
+
+        /********* Hauptfunktion: Bilder updaten *********/
+        async function updateImagesFromSheet() {
+            try {
+                const sheet = await fetchSheetJson();
+                if (!sheet || !sheet.table || !sheet.table.rows) {
+                    console.warn('Keine Zeilen im Sheet oder Sheet nicht erreichbar');
+                    return;
+                }
+
+                const rows = sheet.table.rows;
+
+                // rows[0] ist die Kopfzeile (header) — wir überspringen sie bewusst
+                const dataRows = rows.slice(1);
+
+                const mapping = {}; // id -> url
+
+                dataRows.forEach(r => {
+                    try {
+                        const id = r.c[0] && r.c[0].v ? String(r.c[0].v).trim() : null;
+                        const urlRaw = r.c[2] && r.c[2].v ? String(r.c[2].v).trim() : null;
+                        if (!id) return;
+                        if (!urlRaw) {
+                            mapping[id] = CONFIG.FALLBACK_IMAGE;
+                            return;
                         }
+                        const url = convertToDirectLink(urlRaw);
+                        mapping[id] = isValidUrl(url) ? url : CONFIG.FALLBACK_IMAGE;
+                    } catch (e) {
+                        console.error('Fehler beim Verarbeiten einer Zeile', e);
                     }
                 });
-            })
-            .catch(err => console.error("Fehler beim Laden aus Google Sheet:", err));
+
+                // Setze alle <img data-sheet-id="...">
+                document.querySelectorAll('img[data-sheet-id]').forEach(img => {
+                    const id = img.getAttribute('data-sheet-id');
+                    const newUrl = mapping[id] || CONFIG.FALLBACK_IMAGE;
+                    // avoid unnecessary reassign
+                    if (imageCache.get(id) === newUrl && img.src) return;
+                    img.src = newUrl;
+                    imageCache.set(id, newUrl);
+                    // optional: remove loading class etc.
+                });
+
+                console.log('Bilder aktualisiert aus Sheet', Object.keys(mapping).length);
+            } catch (err) {
+                console.error('updateImagesFromSheet error', err);
+            }
+        }
+
+        /********* Initialization & periodic update *********/
+        document.addEventListener('DOMContentLoaded', () => {
+            // initial load
+            updateImagesFromSheet();
+
+            // auto refresh
+            setInterval(updateImagesFromSheet, CONFIG.UPDATE_INTERVAL);
+
+            // other UI handlers (smooth scroll)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // cart logic (simple)
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.querySelector('.cart-count');
+            let count = 0;
+            addToCartButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    count++;
+                    if (cartCount) cartCount.textContent = count;
+                    btn.textContent = '✓ Dodano!';
+                    btn.style.backgroundColor = '#27ae60';
+                    setTimeout(() => { btn.textContent = 'Do koszyka'; btn.style.backgroundColor = ''; }, 2000);
+                });
+            });
+
+            // fade-in observer
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+
+            console.log('Strona Plansza Drogowa załadowana. Integracja z Google Sheets aktywna.');
+        });
+
+        // optional manual trigger in console
+        window.manualUpdate = updateImagesFromSheet;
     </script>
 </body>
 </html>
